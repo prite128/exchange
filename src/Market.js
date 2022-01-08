@@ -2,6 +2,7 @@ import React from 'react'
 import { Button ,Row,Col} from "antd";
 import { Router, Switch, Route,Redirect,AppRoute,withRouter,useRouteMatch ,useHistory} from "react-router-dom"
 import "antd/dist/antd.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Price from './Price'
 
 const Market = () => {
@@ -11,34 +12,37 @@ const Market = () => {
     console.log("path",path,"url",url);
 
     return (
-        <div style={{ flexDirection: "column" , alignContent: "space-between" }}>
+        <div >
             <Row>
 
                 <Col span={12} >
-                    <div>
-                        <Button 
-                            type="primary"
-                            onClick={()=>{history.push("/market/BTC_THB")}}
-                        >
-                            BTC/THB
-                        </Button>
-                    </div>
-                    <div>
-                        <Button 
+                    <div style={{ margin: "auto" }} >
+                        <div style={{ marginTop : 10 }}>
+                            <Button 
                                 type="primary"
-                                onClick={()=>{history.push("/market/BUSD_THB")}}
+                                onClick={()=>{history.push("/market/BTC_THB")}}
                             >
-                            BUSD/THB
-                        </Button>
-                    </div>
-                    <div>
-                        <Button 
-                                type="primary"
-                                onClick={()=>{history.push("/market/USDT_THB")}}
-                            >
-                            USDT/THB
+                                BTC/THB
                             </Button>
+                        </div>
+                        <div style={{ marginTop : 10 }}>
+                            <Button 
+                                    type="primary"
+                                    onClick={()=>{history.push("/market/BUSD_THB")}}
+                                >
+                                BUSD/THB
+                            </Button>
+                        </div>
+                        <div style={{ marginTop : 10 }} >
+                            <Button 
+                                    type="primary"
+                                    onClick={()=>{history.push("/market/USDT_THB")}}
+                                >
+                                USDT/THB
+                                </Button>
+                        </div>
                     </div>
+                    
                 </Col>
                 <Col span={12} >
                     <Switch> 

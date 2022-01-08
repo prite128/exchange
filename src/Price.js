@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import {Card} from "antd";
 import { useParams} from "react-router-dom"
+
+
 const Price = () => {
     let { coin } = useParams();
     const [coinData, setCoinData] = useState({})
@@ -18,10 +20,8 @@ const Price = () => {
         const getPrice  =  async ()  =>{
             if(coin){
                 const {data} = await axios.get("https://satangcorp.com/api/v3/ticker/24hr")
-                console.log("data",data);
 
                 let coinPrice   =   data.find(el => el.symbol.includes((coin+"").toLowerCase()))
-                console.log("data",data,"coinPrice",coinPrice);
                 if(coinPrice){
                     setCoinData(coinPrice)
                 }
@@ -37,8 +37,9 @@ const Price = () => {
 
     return (
         <div>
-            <Card title={name} style={{ width: 300 }}>
-                <p>{coinData?.lastPrice}</p>
+            <Card style={{ width: 300 , borderStyle: "solid",borderWidth: 2,borderColor: "black" }}>
+                <h2>{name}</h2>
+                <h1>{coinData?.lastPrice}</h1>
                 <p>Volume:{coinData?.quoteVolume}</p>
             </Card>
 
