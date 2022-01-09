@@ -4,7 +4,6 @@ import { Router, Switch, Route,Redirect,AppRoute,withRouter,useRouteMatch ,useHi
 import "antd/dist/antd.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Price from './price/Price'
-import "./Market.css"
 const Market = () => {
     let { path, url } = useRouteMatch();
     let history = useHistory();
