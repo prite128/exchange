@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import {Card} from "antd";
 import { useParams} from "react-router-dom"
-import {useCoinHook,useCoinActionHook} from '../hook/redux/CoinHook'
+import {useCoinHook,useCoinActionHook} from '../../../hook/redux/CoinHook'
 
 const Price = () => {
     let { coinName } = useParams();

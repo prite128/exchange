@@ -1,6 +1,6 @@
 import React from 'react'
 import { Router, Switch, Route,Redirect,AppRoute,withRouter,BrowserRouter} from "react-router-dom"
-import Market from './Market'
+import Market from './market/Market'
 const Main = () => {
     return (
         <>
