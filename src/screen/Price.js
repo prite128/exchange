@@ -2,12 +2,12 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import {Card} from "antd";
 import { useParams} from "react-router-dom"
-import {useCoinHook,useCoinActionHook} from './hook/redux/CoinHook'
+import {useCoinHook,useCoinActionHook} from '../hook/redux/CoinHook'
 
 const Price = () => {
     let { coinName } = useParams();
     let {coin}  =   useCoinHook()
-    let {AddCoin ,EffectGetCoin}  =   useCoinActionHook()
+    let {EffectGetCoin}  =   useCoinActionHook()
     let name    =   ""
 
     if(coin?.symbol){
@@ -24,10 +24,10 @@ const Price = () => {
             
         }
         getPrice()
-        // const interval = setInterval(() => getPrice(), 5000)
-        // return () => {
-        //   clearInterval(interval);
-        // }
+        const interval = setInterval(() => getPrice(), 5000)
+        return () => {
+          clearInterval(interval);
+        }
     }, [coinName])
 
     return (

@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Main from './Main'
-import Market from './Market'
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import { store } from "../src/store";

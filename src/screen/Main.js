@@ -1,8 +1,6 @@
 import React from 'react'
 import { Router, Switch, Route,Redirect,AppRoute,withRouter,BrowserRouter} from "react-router-dom"
-import App from './App';
 import Market from './Market'
-import Price from './Price'
 const Main = () => {
     return (
         <>
