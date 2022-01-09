@@ -9,8 +9,6 @@ const Market = () => {
     let { path, url } = useRouteMatch();
     let history = useHistory();
 
-    console.log("path",path,"url",url);
-
     return (
         <div >
             <Row>
@@ -49,7 +47,7 @@ const Market = () => {
                     {/* <Route exact path={path}>
                        <>aaaa</>
                     </Route> */}
-                        <Route exact path={`/market/:coin`} component={Price} />
+                        <Route exact path={`/market/:coinName`} component={Price} />
                         {/* <Redirect from={`/market/*`} to={`/market/btc`} />  */}
                     </Switch>
                             

@@ -2,29 +2,24 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import {Card} from "antd";
 import { useParams} from "react-router-dom"
-
+import {useCoinHook,useCoinActionHook} from './hook/redux/CoinHook'
 
 const Price = () => {
-    let { coin } = useParams();
-    const [coinData, setCoinData] = useState({})
-
+    let { coinName } = useParams();
+    let {coin}  =   useCoinHook()
+    let {AddCoin ,EffectGetCoin}  =   useCoinActionHook()
     let name    =   ""
 
-    if(coinData?.symbol){
-        let tmpName =   coinData.symbol.replace("_","/")
+    if(coin?.symbol){
+        let tmpName =   coin.symbol.replace("_","/")
         name    =   tmpName.toUpperCase()
     }
 
     useEffect(() => {
         
         const getPrice  =  async ()  =>{
-            if(coin){
-                const {data} = await axios.get("https://satangcorp.com/api/v3/ticker/24hr")
-
-                let coinPrice   =   data.find(el => el.symbol.includes((coin+"").toLowerCase()))
-                if(coinPrice){
-                    setCoinData(coinPrice)
-                }
+            if(coinName){
+                    EffectGetCoin(coinName)
             }
             
         }
@@ -33,14 +28,14 @@ const Price = () => {
         // return () => {
         //   clearInterval(interval);
         // }
-    }, [coin])
+    }, [coinName])
 
     return (
         <div>
             <Card style={{ width: 300 , borderStyle: "solid",borderWidth: 2,borderColor: "black" }}>
                 <h2>{name}</h2>
-                <h1>{coinData?.lastPrice}</h1>
-                <p>Volume:{coinData?.quoteVolume}</p>
+                <h1>{coin?.lastPrice}</h1>
+                <p>Volume:{coin?.quoteVolume}</p>
             </Card>
 
         </div>
