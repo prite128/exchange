@@ -14,7 +14,7 @@ const Market = () => {
 
                 <Col span={12} >
                     <div style={{ margin: "auto" }} >
-                        <div className='div-Button'>
+                        <div style={{ marginTop : 10 }}>
                             <Button 
                                 type="primary"
                                 onClick={()=>{history.push("/market/BTC_THB")}}
